@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="estilos.css">
+        <link rel="icon" href="img/icono escuela.png">
+        <title>Escuela en linea</title>
+    </head>
+
+<body>
+
+<div class="container">
+
+    <div class="izquierda">
+
+        <img class="logo-escuela" src="img/logo escuela.png"> 
+        <img class="imagen-escuela" src="img/formacion-estudiantes-recursos-programas-universitarios-1000x700.jpg">
+
+    </div>
+
+    <div class="derecha">
+
+        <h2>Inscribete a nuestras carreras</h2>
+
+        <div class="precio"> Desde $900.00 al mes </div>
+
+        <p> </p>
+
+        <div class="carreras">
+
+        <div class="carrera">
+            <img src="img/estudiar-carrera-1.png" alt="Diseño Gr&aacute;fico">
+            <p>Diseño Gr&aacute;fico</p>
+        </div>
+
+        <div class="carrera">
+            <img src="img/Grupo-estudiantes-con-simulador.jpg" alt="Odontologia">
+            <p>Odontologia</p>
+        </div>
+
+        <div class="carrera">
+            <img src="img/series-de-derecho-en-netflix.webp" alt="Derecho">
+            <p>Derecho</p>
+        </div>
+
+        <div class="carrera">
+            <img src="img/arquitecto-trabajando-en-blueprint_23-2147710979.jpg" alt="Arquitectura">
+            <p>Arquitectura</p>
+        </div>
+
+</div>
+<p></p>
+
+    <form id="pedidoForm">
+
+        <label>Nombre (s)</label>
+        <input type="text" placeholder="Nombre (s)" id="nombre" required>
+
+        <label>Apellidos</label>
+        <input type="text" placeholder="Apellidos" id="apellido" required>
+
+        <label>Correo Electr&oacute;nico</label>
+        <input type="email" placeholder="Correo Electr&oacute;nico" id="correo" required>
+
+        <label>Tel&eacute;fono</label>
+        <input type="tel" placeholder="Teléfono" id="telefono" required>
+
+        <label>Carreras</label>
+        <select id="carrera">
+            <option>Diseño Gr&aacute;fico</option>
+            <option>Odontologia</option>
+            <option>Derecho</option>
+            <option>Arquitectura</option>
+        </select>
+
+        <button type="submit">Enviar pedido</button>
+    </form>
+
+<p class="mensaje" id="mensaje"></p>
+</div>
+
+</div>
+
+    <script>
+
+    const url = "https://script.google.com/macros/s/AKfycbygT3w6bBN7G0ChkYNNjdHIDUGlACaEnjxzRZsvsWcXgVA1mLH9_3cYR-ADWykhm9VYJw/exec";
+
+    document.getElementById("pedidoForm")
+    .addEventListener("submit", function(e){
+
+        e.preventDefault();
+
+        const datos = {
+            nombre: document.getElementById("nombre").value,
+            apellido: document.getElementById("apellido").value,
+            telefono: document.getElementById("telefono").value,
+            correo: document.getElementById("correo").value,
+            carrera: document.getElementById("carrera").value
+        };
+
+        fetch(url, {
+            method:"POST",
+            body: JSON.stringify(datos)
+        }) 
+        .then(res=>res.text())
+        .then(data=>{
+            document.getElementById("mensaje").innerHTML="Datos guardados correctamente";
+            document.getElementById("pedidoForm").reset();
+        })
+        .catch(error=>{
+        document.getElementById("mensaje").innerHTML="Error al guardar";
+        });
+    });
+    </script>
+
+</body>
+
+</html>

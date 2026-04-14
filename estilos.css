@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#e6e6e6;
+}
+
+.container{
+    display:flex;
+}
+
+.izquierda{
+    width:55%;
+    background:#f5f5f5;
+    text-align:center;
+    padding:0px;
+}
+
+.logo{
+    font-size:32px;
+    margin-bottom:20px;
+}
+
+.logo-escuela{
+    width: 20%;
+    margin: 10px 40px;
+}
+
+.imagen-escuela{
+    width:70%;
+    border-radius:10px;
+    box-shadow:0px 0px 10px rgba(0,0,0,0.3);
+}
+
+.derecha{
+    width:45%;
+    background:#0077b6;
+    padding:20px;
+}
+
+h2{
+    text-align:center;
+    color:#ffffff;
+}
+
+.precio{
+    text-align:center;
+    font-size:22px;
+    color:#ffffff;
+    margin-bottom:20px;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+}
+
+label{
+    margin-top:15px;
+    font-weight:bold;
+    color: #0e344d;
+}
+
+input, select{
+        padding:12px;
+        border-radius:10px;
+        border:1px solid #ccc;
+        font-size:14px;
+        width: 530px;
+}
+
+button{
+    margin-top:20px;
+    padding:10px;
+    background:#03045e;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#010222;
+}
+
+.carreras{
+display:flex;
+justify-content:center;
+gap:15px;
+margin:20px 0;
+}
+
+.carrera{
+text-align:center;
+}
+
+.carrera img{
+width:100px;
+height:70px;
+object-fit:cover;
+border-radius:8px;
+box-shadow:0px 2px 6px rgba(0,0,0,0.3);
+transition:0.3s;
+cursor:pointer;
+}
+
+.carrera img:hover{
+transform:scale(1.1);
+}
+
+.carrera p{
+margin-top:5px;
+font-size:14px;
+font-weight:bold;
+color:#03045e;
+}
+
+.mensaje{
+text-align: center;
+color: rgb(255, 255, 255);
+}
+
+@media (max-width: 600px) {
+            .container {
+                flex-direction: column;
+            }
+}
